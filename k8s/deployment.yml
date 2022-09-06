@@ -37,14 +37,12 @@ spec:
           - name: SQL_PORT
             value: "5432"
           - name: SQL_DB
-            value: POSTGRES_NAME
+            value: postgres
           - name: MEDIA_ROOT
             value: /usr/src/media
         volumeMounts:
         - mountPath: /usr/src/app/data
           name: hafsa-internship-volume-mount
-        - mountPath: /usr/src/media
-          name: hafsa-media-internship-volume-mount
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -54,7 +52,5 @@ spec:
       - name: hafsa-internship-volume-mount
         persistentVolumeClaim:
           claimName: hafsa-internship-pvc
-      - name: hafsa-media-internship-volume-mount
-        persistentVolumeClaim:
-          claimName: hafsa-media-internship-pvc
+    
 
