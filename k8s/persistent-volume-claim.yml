@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: internship
-  name: Hafsa-internship-pvc
+  name: hafsa-internship-pvc
   labels:
     type: local
 spec:
@@ -11,5 +11,5 @@ spec:
   resources:
     requests:
       storage: 0.1Gi
-  volumeName: Hafsa-internship-pv
+  volumeName: hafsa-internship-pv
   storageClassName: standard

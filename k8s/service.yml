@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: internship
-  name: Hafsa-internship
+  name: hafsa-internship
   labels:
-    service: Hafsa-internship
+    service: hafsa-internship
 spec:
   selector:
-    service: Hafsa-internship
+    service: hafsa-internship
   type: ClusterIP
   ports:
   - name: web

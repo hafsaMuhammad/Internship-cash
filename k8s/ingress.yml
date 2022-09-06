@@ -1,25 +1,25 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: Hafsa-internship
+  name: hafsa-internship
   namespace: internship
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
   labels:
-    service: Hafsa-internship
+    service: hafsa-internship
 spec:
   tls:
   - hosts:
-    - Hafsa.internship.et3.co
-    secretName: Hafsa.internship.et3.co-cert
+    - hafsa.internship.et3.co
+    secretName: hafsa.internship.et3.co-cert
   rules:
-  - host: Hafsa.internship.et3.co
+  - host: hafsa.internship.et3.co
     http:
       paths:
       - path: /
         backend:
-          serviceName: Hafsa-internship
+          serviceName: hafsa-internship
           servicePort: 8000
      

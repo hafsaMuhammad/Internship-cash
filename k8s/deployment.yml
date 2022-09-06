@@ -4,23 +4,23 @@ metadata:
   namespace: internship
   creationTimestamp: null
   labels:
-    name: Hafsa
-  name: Hafsa-internship
+    name: hafsa
+  name: hafsa-internship
 spec:
   progressDeadleSeconds: 2147483647
   replicas: 1
   selector:
     matchLabels:
-      service: Hafsa-internship
+      service: hafsa-internship
   template:
     metadata:
       creationTimestamp: null
       labels:
-        service: Hafsa-internship
+        service: hafsa-internship
     spec:
       containers:
-      - name: Hafsa-internship
-        image: docker.et3.co/internship.Hafsa:latest
+      - name: hafsa-internship
+        image: docker.et3.co/internship.hafsa:latest
         command: ["sh"]
         args: ["runserver.sh"]
         env:
@@ -42,19 +42,19 @@ spec:
             value: /usr/src/media
         volumeMounts:
         - mountPath: /usr/src/app/data
-          name: Hafsa-internship-volume-mount
+          name: hafsa-internship-volume-mount
         - mountPath: /usr/src/media
-          name: Hafsa-media-internship-volume-mount
+          name: hafsa-media-internship-volume-mount
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-      - name: Hafsa-internship-volume-mount
+      - name: hafsa-internship-volume-mount
         persistentVolumeClaim:
-          claimName: Hafsa-internship-pvc
-      - name: Hafsa-media-internship-volume-mount
+          claimName: hafsa-internship-pvc
+      - name: hafsa-media-internship-volume-mount
         persistentVolumeClaim:
-          claimName: Hafsa-media-internship-pvc
+          claimName: hafsa-media-internship-pvc
 
