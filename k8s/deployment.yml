@@ -27,13 +27,13 @@ spec:
           - name: DEBUG
             value: "False"        
           - name: SQL_USER
-            value: POSTGRES_USER
+            value: internship
           - name: SQL_ENGINE
             value: django.db.backends.postgresql_psycopg2
           - name: SQL_PASSWORD
-            value: POSTGRES_PASSWORD
+            value: internship123
           - name: SQL_HOST
-            value: db
+            value: postgres-internship-hafsa
           - name: SQL_PORT
             value: "5432"
           - name: SQL_DB
