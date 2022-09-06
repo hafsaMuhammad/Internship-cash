@@ -22,7 +22,7 @@ transaction_choices=(('t', 'Transfer'), ('in', 'Cash in'), ('out', 'Cash out'))
 class Transaction(models.Model):
     type = models.CharField(max_length=20, choices=transaction_choices)
     amount = models.FloatField(default=0.0)
-    fee = models.FloatField(default=0.0)
+    fee = models.FloatField(default=0.0, editable=False)
     transaction_time = models.DateTimeField('date created')
     receiverAccNumber = models.CharField(max_length=9, default='000000000')
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
