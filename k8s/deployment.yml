@@ -33,7 +33,7 @@ spec:
           - name: SQL_PASSWORD
             value: internship123
           - name: SQL_HOST
-            value: postgres-internship-hafsa
+            value: postgres-ese-communities
           - name: SQL_PORT
             value: "5432"
           - name: SQL_DB
