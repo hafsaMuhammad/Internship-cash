@@ -27,17 +27,17 @@ spec:
           - name: DEBUG
             value: "False"        
           - name: SQL_USER
-            value: postgres
+            value: POSTGRES_USER
           - name: SQL_ENGINE
             value: django.db.backends.postgresql_psycopg2
           - name: SQL_PASSWORD
-            value: postgres
+            value: POSTGRES_PASSWORD
           - name: SQL_HOST
             value: db
           - name: SQL_PORT
             value: "5432"
           - name: SQL_DB
-            value: postgres
+            value: POSTGRES_NAME
           - name: MEDIA_ROOT
             value: /usr/src/media
         volumeMounts:
