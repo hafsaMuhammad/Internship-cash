@@ -1,14 +1,14 @@
 build:
   stage: build 
   script:
-      - docker build -t docker.et3.co/internship.Hafsa:$CI_COMMIT_TAG -t docker.et3.co/internship.Hafsa:latest .
-      - docker push docker.et3.co/internship.Hafsa
+      - docker build -t docker.et3.co/internship.hafsa:$CI_COMMIT_TAG -t docker.et3.co/internship.hafsa:latest .
+      - docker push docker.et3.co/internship.hafsa
   only:
     - tags
 test:
   stage: test 
   script:
-      - docker run --rm docker.et3.co/internship.Hafsa python manage.py test
+      - docker run --rm docker.et3.co/internship.hafsa python manage.py test
   only:
     - tags
 deploy:
