@@ -21,8 +21,8 @@ from internshipcash import urls
 
 
 urlpatterns = [
-
+    path('', include('internshipcash.urls')),
     path('internshipcash/', include('internshipcash.urls')),
-   
+
     path('admin/', admin.site.urls),
 ]
