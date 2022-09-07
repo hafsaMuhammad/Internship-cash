@@ -11,15 +11,15 @@ metadata:
     service: hafsa-internship
 spec:
   tls:
-  - hosts:
-    - hafsa.internship.et3.co
-    secretName: hafsa.internship.et3.co-cert
+    - hosts:
+        - hafsa.internship.et3.co
+      secretName: hafsa.internship.et3.co-cert
   rules:
-  - host: hafsa.internship.et3.co
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: hafsa-internship
-          servicePort: 8000
-     
+    - host: hafsa.internship.et3.co
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: hafsa-internship
+              servicePort: 8000
+         

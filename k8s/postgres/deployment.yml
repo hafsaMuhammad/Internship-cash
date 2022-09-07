@@ -7,7 +7,7 @@ metadata:
     name: database
   name: postgres-internship-hafsa
 spec:
-  progressDeadleSeconds: 2147483647
+  progressDeadlineSeconds: 2147483647
   replicas: 1
   selector:
     matchLabels:
@@ -19,22 +19,22 @@ spec:
         service: postgres-internship-hafsa
     spec:
       containers:
-      - name: postgres-internship-hafsa
-        image: postgres:12.1-alpine
-        env:
-          - name: POSTGRES_USER
-            value: internship
-          - name: POSTGRES_PASSWORD
-            value: internship123
-        volumeMounts:
-        - mountPath: /var/lib/postgresql/data
-          name: postgres-internship-hafsa-volume-mount
+        - name: postgres-internship-hafsa
+          image: postgres:12.1-alpine
+          env:
+            - name: POSTGRES_USER
+              value: internship
+            - name: POSTGRES_PASSWORD
+              value: ese123
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-internship-hafsa-volume-mount
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-      - name: postgres-internship-hafsa-volume-mount
-        persistentVolumeClaim:
-          claimName: postgres-internship-hafsa-pvc
+        - name: postgres-internship-hafsa-volume-mount
+          persistentVolumeClaim:
+            claimName: postgres-internship-hafsa-pvc

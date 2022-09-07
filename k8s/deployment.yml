@@ -7,7 +7,7 @@ metadata:
     name: hafsa
   name: hafsa-internship
 spec:
-  progressDeadleSeconds: 2147483647
+  progressDeadlineSeconds: 2147483647
   replicas: 1
   selector:
     matchLabels:
@@ -19,38 +19,38 @@ spec:
         service: hafsa-internship
     spec:
       containers:
-      - name: hafsa-internship
-        image: docker.et3.co/internship.hafsa:latest
-        command: ["sh"]
-        args: ["runserver.sh"]
-        env:
-          - name: DEBUG
-            value: "False"        
-          - name: SQL_USER
-            value: internship
-          - name: SQL_ENGINE
-            value: django.db.backends.postgresql_psycopg2
-          - name: SQL_PASSWORD
-            value: internship123
-          - name: SQL_HOST
-            value: postgres-ese-communities
-          - name: SQL_PORT
-            value: "5432"
-          - name: SQL_DB
-            value: postgres
-          - name: MEDIA_ROOT
-            value: /usr/src/media
-        volumeMounts:
-        - mountPath: /usr/src/app/data
-          name: hafsa-internship-volume-mount
+        - name: hafsa-internship
+          image: docker.et3.co/internship.hafsa:latest
+          command: ["sh"]
+          args: ["runserver.sh"]
+          env:
+            - name: DEBUG
+              value: "False"
+            - name: SQL_USER
+              value: internship
+            - name: SQL_ENGINE
+              value: django.db.backends.postgresql_psycopg2
+            - name: SQL_PASSWORD
+              value: ese123
+            - name: SQL_HOST
+              value: postgres-internship-hafsa
+            - name: SQL_PORT
+              value: "5432"
+            - name: SQL_DB
+              value: postgres
+            - name: MEDIA_ROOT
+              value: /usr/src/media
+          volumeMounts:
+            - mountPath: /usr/src/app/data
+              name: hafsa-internship-volume-mount
+            
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-      - name: hafsa-internship-volume-mount
-        persistentVolumeClaim:
-          claimName: hafsa-internship-pvc
-    
-
+        - name: hafsa-internship-volume-mount
+          persistentVolumeClaim:
+            claimName: hafsa-internship-pvc
+        
