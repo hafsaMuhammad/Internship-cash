@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+{% extends "./base.html" %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+<title>Profile</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+  <template >
+    <v-card
+      class="mx-auto mb-5" style="width: 100%;"
+    >
+
+        {% if user %}
+        {% for u in user %}
+      <v-card-text class=" purple lighten-5">
+        <div class="mb-4" style="border-bottom: 1px solid #333">
+          <div class="text-h4 mb-1">Hello, <span style="text-transform: capitalize;"> {{ u.username }}</span></div>
+          <p class="secondary--text">
+            Welcome to your internship Account..
+          </p>
+        </div>
+        <div class="secondary--text">
+          <p>
+            name: {{ u.first_name }}, {{ u.last_name }}
+          </p>
+          <p >
+            Email: {{ u.email }}
+          </p>
+          <p >
+            joined date: {{ u.date_joined }}
+          </p>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </v-card-text>
+
+    </v-card>
+  </template>
+     
+
+
+      <template class="">
+        <v-card
+          class="mx-auto mt-9  pb-5 purple lighten-5"
+          style="width: 50%; text-align: center;"
+          outlined
+        >
+          <v-list-item three-line>
+            <v-list-item-content>
+              <div class="text-overline mb-4">
+                Balance
+              </div>
+              {% if userAccount %}
+              {% for account in userAccount %}
+              <v-list-item-title class="text-h5 mb-1">
+                {{ account.balance }}  EGP
+              </v-list-item-title>
+              {% endfor %}     
+            </v-list-item-content>
+          </v-list-item>
+
+          {% for u in user %}
+
+          <a href="{% url 'internshipcash:transfer' u.id %}" class="" style="text-decoration: none;">
+            <v-btn style="width: 25%;"
+              outlined
+              rounded
+              text
+              class="white"
+            >
+              Transfer Money
+            </v-btn>
+          </a>
+          {% endfor %}
+          {% else %}
+          <p>No accounts are available.</p>
+          {% endif %}
+        </v-card>
+      </template>
+
+{% endblock %}
+
+
+
+
+
+

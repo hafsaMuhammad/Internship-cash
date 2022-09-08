@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% extends "../internshipcash/transfer.html" %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+
+
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+
+
+
+{% endblock %}

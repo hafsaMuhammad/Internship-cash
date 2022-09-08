@@ -39,9 +39,9 @@
             </v-list-item-content>
           </v-list-item>
 
-          {% for u in user %}
+         
 
-          <a href="{% url 'internshipcash:home' u.id %}" class="" style="text-decoration: none;">
+          <a href="{% url 'internshipcash:profile'%}" class="" style="text-decoration: none;">
             <v-btn style="width: 25%;"
               outlined
               rounded
@@ -51,7 +51,7 @@
               Home
             </v-btn>
           </a>
-          {% endfor %}
+          
           {% else %}
           <p>No accounts are available.</p>
           {% endif %}

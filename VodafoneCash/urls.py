@@ -20,9 +20,9 @@ import internshipcash
 from internshipcash import urls
 
 
+app_name = 'project'
 urlpatterns = [
     path('', include('internshipcash.urls')),
-    path('internshipcash/', include('internshipcash.urls')),
-
+    path("profile/", include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
 ]

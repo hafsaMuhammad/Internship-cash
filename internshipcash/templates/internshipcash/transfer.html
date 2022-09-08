@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    {% block title %}
     <title>transfer</title>
+    {% endblock %}
+
+
     <style>
         .btn{
             background-color: #F3E5F5;
@@ -17,20 +22,27 @@
         }
 
     </style>
+    
 </head>
 <body class="">
     
+  {% block content %}
     <div class="text-center p-2" style="background-color:#F3E5F5 ;">
         <h1 class="display-4 text-secondary">Transfer Money</h1>
     </div>
 
 
 
-    {% for u in user %}
-    <form  action="{% url 'internshipcash:transferConfirmed' u.id %}" method="post">
-    {% endfor %}  
+    
+    <form  action="{% url 'internshipcash:transferConfirmed' %}" method="post">
+    
         {% csrf_token %}
        
+        <div class="mb-3 mt-4">
+            <label for="senderAccount" class="form-label">receiver Account Number</label>
+            <input type="text" class="form-control" id="senderAccount" name="senderAccount" >
+        </div>
+
         <div class="mb-3 mt-4">
             <label for="receiverAccount" class="form-label">receiver Account Number</label>
             <input type="text" class="form-control" id="receiverAccount" name="receiverAccount" >
@@ -42,7 +54,7 @@
         <button type="submit" class="btn p-2 fs-2 text-secondary w-100" >Submit</button>
       </form>
 
-
+    {% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
@@ -51,61 +63,3 @@
 
 
 
-
-
-<!-- 
-
-
-{% block title %}
-<title>Transfer Money</title>
-{% endblock %}
-
-
-
-{% block content %}
-
-    
-   
-    <div  class="pb-2 pt-3 purple lighten-5 mb-6 " style="text-align: center;">
-        <p class="text-h4 secondary--text"> Internship Cash</p>
-    </div>
-
-    <template>
-        {% for u in user %}
-        <form class=" container" style=" text-align: center;"  action="{% url 'internshipcash:transferConfirmed' u.id %}" method="post">
-        {% endfor %}  
-        {% csrf_token %}
-          <v-text-field
-            v-model="receiverAccount"
-            label="receiver Account Number"
-            required
-            name="receiverAccount"
-            id="receiverAccount"
-            @input="$v.receiverAccount.$touch()"
-            @blur="$v.receiverAccount.$touch()"
-          >
-            <label for="receiverAccount" class="form-label">receiver Account Number</label>
-            <input type="text" class="form-control" id="receiverAccount" name="receiverAccount" >
-          </v-text-field>
-          <v-text-field
-            v-model="amount"
-            label="Money Amount"
-            required
-            @input="$v.amount.$touch()"
-            @blur="$v.amount.$touch()"
-            name="amount"
-            id="amount"
-          >
-            <label for="amount" class="form-label"> Money Amount</label>
-            <input type="text" class="form-control" id="amount" name="amount" value="0.0" >
-          </v-text-field>
-          <v-btn
-            class="mr-4"
-            @click="submit"
-          >
-            submit
-          </v-btn>
-        </form>
-      </template>
-
-{% endblock %} -->
