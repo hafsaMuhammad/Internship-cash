@@ -15,7 +15,7 @@ class Account(models.Model):
     created_at = models.DateTimeField('date created')
     User = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
+#date-->auto add, balance--> decimal not float, account_number-->unique
 
 transaction_choices=(('t', 'Transfer'), ('in', 'Cash in'), ('out', 'Cash out'))
 
