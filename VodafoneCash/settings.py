@@ -94,11 +94,11 @@ DATABASES = {
         # 'PORT': '5432',
 
         #for local server
-        # 'NAME': 'internship_cash',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'l2hzn2010',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '5432',
+        'NAME': 'internship_cash',
+        'USER': 'postgres',
+        'PASSWORD': 'l2hzn2010',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
