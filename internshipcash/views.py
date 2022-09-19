@@ -57,7 +57,7 @@ def transferConfirmed(request):
     receiverNum = request.POST['receiverAccount']
     amount = float(request.POST['amount'])
     senderId = request.user.id
-    userAcc = Transaction.transferBalance(receiverNum, amount, senderId)
+    Transaction.transferBalance(receiverNum, amount, senderId)
     user = User.objects.filter(id= senderId)
     userAccount = Account.objects.filter(User_id= senderId)
     context = {
